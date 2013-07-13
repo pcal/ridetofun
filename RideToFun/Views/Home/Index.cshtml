@@ -1,84 +1,137 @@
-﻿@model RideToFun.Models.LoginModel
-@{
-    ViewBag.Title = "My Todo List";
+﻿@{
+    Layout = "";
 }
-@functions{
-    public string GetAntiForgeryToken()
-    {
-        string cookieToken, formToken;
-        AntiForgery.GetTokens(null, out cookieToken, out formToken);
-        return cookieToken + ":" + formToken;                
-    }
-}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html dir="ltr" lang="en-US" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html dir="ltr" lang="en-US" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html dir="ltr" lang="en-US" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html dir="ltr" lang="en-US" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html dir="ltr" lang="en-US"> <!--<![endif]-->
 
-<header>
-    <h1>@ViewBag.Title</h1>
-</header>
+<head>
+<meta charset="UTF-8" />
+<title>VéloPlan</title>
 
-<div id="main-content">
-@if (@User.Identity.IsAuthenticated)
-{
-    <p class="error" data-bind="text: error"></p>
-    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
-    <button data-bind="click: addTodoList">Add Todo list</button>
+<link rel="shortcut icon" href="http://opennorth.ca/favicon.ico">
+<!--  Mobile Viewport Fix -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+<!-- Google WebFonts -->
+<link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
 
-    <section id="map">
-        
-    </section>
+<!-- leaflet -->
+<script src="scripts/lib/leaflet/leaflet.js"></script>
+<link rel="stylesheet" href="scripts/lib/leaflet/leaflet.css" />
+
+<!-- json support -->
+<script src="scripts/lib/json2.js"></script>
+
+<!-- jquery -->
+<script src="scripts/lib/jquery/jquery-1.7.2.js"></script>
+
+<!-- jquery-ui -->
+<script src="scripts/lib/jquery-ui/js/jquery-ui-1.8.20.custom.min.js"></script>
+<link rel="stylesheet" href="scripts/lib/jquery-ui/css/smoothness/jquery-ui-1.8.20.custom.css" />
+
+<!-- raphael -->
+<script src="scripts/lib/raphael/raphael-min.js"></script>
+
+<!-- otp-specific imports -->
+<script src="scripts/otp/otp.js"></script>
+<script src="scripts/otp/locale/English.js"></script>
+<script src="scripts/otp/config.js"></script>
+<script src="scripts/otp/util/leaflet.js"></script>
+<script src="scripts/otp/util/Time.js"></script>
+<script src="scripts/otp/util/Logger.js"></script>
+<script src="scripts/otp/util/DataStorage.js"></script>
+<script src="scripts/otp/core/Webapp.js"></script>
+<script src="scripts/otp/core/Map.js"></script>
+<script src="scripts/otp/modules/Module.js"></script>
+<script src="scripts/otp/modules/bikeshare/BikeShareModule.js"></script>
+<script src="scripts/otp/modules/bikeshare/IconFactory.js"></script>
+<script src="scripts/otp/modules/park/ParkModule.js"></script>
+<script src="scripts/otp/modules/park/IconFactory.js"></script>
+<script src="scripts/otp/widgets/Widget.js"></script>
+<script src="scripts/otp/widgets/TripSummaryWidget.js"></script>
+<script src="scripts/otp/widgets/BikeTrianglePanel.js"></script>
+<script src="scripts/otp/widgets/BikeStationsWidget.js"></script>
+<script src="scripts/otp/widgets/InfoWidget.js"></script>
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- make legacy Internet Explorer play nice(r) -->
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!-- create the webapp at startups -->
+<script type="text/javascript" language="javascript">
+
+$(document).ready(function() {
+  new otp.core.Webapp();
+});
+</script>
+
+</head>
+<body>
+
+<header id="branding" role="banner" class="clearfix">
+
+  <hgroup id="logo">
+      <img id="imglogo" alt="Logo Open North" src="./images/onlogo.png" />
+      <h1 id="site-title"><span><a href="/" title="VéloPlan" rel="home">VéloPlan</a></span></h1>
+      <!--h2 id="site-description">Where can you bike to?</h2-->
+  </hgroup>
+
+  <p id="splash-text"><span id="text-splash"></span></p>
+
+ @* <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style" 
+    addthis:url="http://veloplan.net"
+    addthis:title="Montreal / bike / velo"
+    <a class="addthis_button_twitter"></a>
+    <a class="addthis_button_facebook"></a>
+    <a class="addthis_button_google_plusone_share"></a>
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+  </div> 
+  <!-- AddThis Button END -->*@
+
+  <nav id="main-menu" role="article">
+    <ul>
+      <li class="" id="about_link"><a href="#"><span id="about"></span></a></li>
+      <li class="" id="contact_link"><a href="#"><span id="contact"></span></a></li>
+    </ul>
+  </nav>
+ <!--
+  <div class="search">
     
-    <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
-        <article class="todoList">
-            <header>
-                <form data-bind="validate: true">
-                    <input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
-                </form>
-            </header>
+    <input type="text" name="location_search" placeholder="Search for a location&hellip;" />
+  </div>
+ -->
+</header><!-- #branding -->
 
-            <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
+<div id="map"></div>
 
-            <ul data-bind="foreach: todos">
-                <li>
-                    <input type="checkbox" data-bind="checked: isDone" />
-                    <input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
-                    <a href="#" data-bind="click: $parent.deleteTodo">X</a>
-                    <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-                </li>
-            </ul>
+<div id="foo"></div>
 
-            <form data-bind="submit: addTodo">
-                <input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
-            </form>
+<script type="text/javascript">
+  $("#about").html(locale.menu.about);
+  $("#contact").html(locale.menu.contact);
+  $("#text-splash").html(locale.menu.splash);
 
-            <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-        </article>
-    </section>
-}
-else
-{
-    <div class="todoList" id="loginPanel">
-        <section id="localLoginPanel">
-            <h2>Log in</h2>
-            @Html.Partial("_Login")
-        </section>
-        <section id="socialLoginPanel">
-            <h2>Log in using another service</h2>
-            @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-        <p>First time here? <a id="showRegister">Sign up</a></p>
-    </div>
-    <div class="todoList" id="registerPanel">
-        <h2>Sign up</h2>
-        @Html.Partial("_Register")
-        <p>Already signed up? <a id="showLogin">Log in</a></p>
-    </div>
-}
-</div>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21866813-13']);
+  _gaq.push(['_trackPageview']);
 
-@if (@User.Identity.IsAuthenticated)
-{
-    @section scripts {
-        @Scripts.Render("~/bundles/knockout")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/todo")
-    }
-}
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

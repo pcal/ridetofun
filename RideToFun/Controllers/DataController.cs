@@ -118,9 +118,19 @@ namespace RideToFun.Controllers
         {
             var parks = new List<Park>();
 
-            string queryString = @"SELECT DISTINCT * FROM Parks
+            string queryString;
+            if (String.IsNullOrEmpty(features))
+            {
+                queryString = @"SELECT DISTINCT Id, Name, CoordinateX, CoordinateY FROM Parks
+JOIN ParkFeatures ON ParkId = Id";
+            }
+            else
+            {
+                queryString = @"SELECT DISTINCT Id, Name, CoordinateX, CoordinateY FROM Parks
 JOIN ParkFeatures ON ParkId = Id
 WHERE FeatureName In (@features)";
+            }
+            
 
             var park = new Park();
 
@@ -128,7 +138,10 @@ WHERE FeatureName In (@features)";
                 new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
-                command.Parameters.AddWithValue("@features", features.ToUpper());
+                if (!String.IsNullOrEmpty(features))
+                {
+                    command.Parameters.AddWithValue("@features", features.ToUpper());
+                }
 
                 try
                 {
@@ -140,10 +153,10 @@ WHERE FeatureName In (@features)";
                         //reader[0], reader[1], reader[2]);
                         parks.Add( new Park
                                    {
-                                       Id = reader["Id"].ToString(),
-                                       Name = reader["Name"].ToString(),
-                                       Latitude = reader["CoordinateX"].ToString(),
-                                       Longitude = reader["CoordinateY"].ToString()
+                                       id = reader["Id"].ToString(),
+                                       name = reader["Name"].ToString(),
+                                       x = reader["CoordinateX"].ToString(),
+                                       y = reader["CoordinateY"].ToString()
                                    });
 
                     }
@@ -186,10 +199,10 @@ WHERE FeatureName In (@features)";
                         //reader[0], reader[1], reader[2]);
                         park = new Park
                         {
-                            Id = reader["Id"].ToString(),
-                            Name = reader["Name"].ToString(),
-                            Latitude = reader["latitude"].ToString(),
-                            Longitude = reader["longitude"].ToString()
+                            id = reader["Id"].ToString(),
+                            name = reader["Name"].ToString(),
+                            x = reader["latitude"].ToString(),
+                            y = reader["longitude"].ToString()
                         };
 
                     }
@@ -207,10 +220,10 @@ WHERE FeatureName In (@features)";
 
     public class Park
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public string x { get; set; }
+        public string y { get; set; }
     }
 
     public class DivvyResponse
