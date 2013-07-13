@@ -121,12 +121,12 @@ namespace RideToFun.Controllers
             string queryString;
             if (String.IsNullOrEmpty(features))
             {
-                queryString = @"SELECT DISTINCT Id, Name, CoordinateX, CoordinateY FROM Parks
+                queryString = @"SELECT DISTINCT Id, Name, Location.Lat AS Lat, Location.Long as Lng FROM Parks
 JOIN ParkFeatures ON ParkId = Id";
             }
             else
             {
-                queryString = @"SELECT DISTINCT Id, Name, CoordinateX, CoordinateY FROM Parks
+                queryString = @"SELECT DISTINCT Id, Name, Location.Lat AS Lat, Location.Long as Lng FROM Parks
 JOIN ParkFeatures ON ParkId = Id
 WHERE FeatureName In (@features)";
             }
@@ -155,8 +155,8 @@ WHERE FeatureName In (@features)";
                                    {
                                        id = reader["Id"].ToString(),
                                        name = reader["Name"].ToString(),
-                                       x = reader["CoordinateX"].ToString(),
-                                       y = reader["CoordinateY"].ToString()
+                                       x = reader["Lat"].ToString(),
+                                       y = reader["Lng"].ToString()
                                    });
 
                     }
@@ -176,7 +176,7 @@ WHERE FeatureName In (@features)";
         public JsonpResult ClosestPark(string lat, string lng, string callback = "dummy")
         {
             string queryString =
-    String.Format(@"SELECT TOP(1) Location.ToString(), Id, Name, Latitude, Longitude FROM Parks
+    String.Format(@"SELECT TOP(1) Location.ToString(), Id, Name, Location.Lat AS Lat, Location.Long as Lng FROM Parks
                 WHERE Location.STDistance(POINT('@lat @lng')) IS NOT NULL
                 ORDER BY Location.STDistance(@POINT('@lat @lng'))");
 
@@ -201,8 +201,8 @@ WHERE FeatureName In (@features)";
                         {
                             id = reader["Id"].ToString(),
                             name = reader["Name"].ToString(),
-                            x = reader["latitude"].ToString(),
-                            y = reader["longitude"].ToString()
+                            x = reader["Lat"].ToString(),
+                            y = reader["Lng"].ToString()
                         };
 
                     }

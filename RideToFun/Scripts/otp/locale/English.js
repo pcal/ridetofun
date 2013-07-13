@@ -87,7 +87,7 @@ otp.locale.English= {
     
     parkInfo :
     {
-        park : "Park",
+        park : "Chicago Park District",
         start : "Start",
         destination: "Destination",
         tripLine: "Your trip!",

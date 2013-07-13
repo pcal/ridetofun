@@ -144,7 +144,7 @@ otp.modules.park.ParkModule =
             this_.stations = stations;
             for(var i=0; i<this_.stations.length; i++) {
                 var station = this_.stations[i];
-                var marker = new L.Marker(new L.LatLng(station.x, station.y), {icon: this_.icons.getSmall(station)}); 
+                var marker = new L.Marker(new L.LatLng(station.y, station.x), {icon: this_.icons.getSmall(station)}); 
                 marker.bindPopup(this_.constructStationInfo(locale.parkInfo.park, station));
                 this_.stationsLayer.addLayer(marker);
                 station.marker = marker;
@@ -194,7 +194,7 @@ otp.modules.park.ParkModule =
         }
         var info = "<strong>"+title+"</strong><br/>";
         station.markerTitle = title;
-        info += '<strong>'+ locale.parkInfo.park +'</strong> '+station.name+'<br/>';
+        info += station.name+'<br/>';
         return info;
     },
     
