@@ -311,6 +311,8 @@
     <Content Include="Images\bicycle_red_small.png" />
     <Content Include="Images\flag_marker_green.png" />
     <Content Include="Images\flag_marker_red.png" />
+    <Content Include="Images\hd%402x.png" />
+    <Content Include="Images\hd.png" />
     <Content Include="Images\ico-divvy-sm-0.png" />
     <Content Include="Images\ico-divvy-sm-50.png" />
     <Content Include="Images\ico-divvy-sm.png" />

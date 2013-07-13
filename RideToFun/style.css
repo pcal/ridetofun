@@ -180,7 +180,26 @@ body {
 }
 
 /* the logo */
-
+#features {
+    height: 100%;
+    background-color: #fff;
+    z-index: 100;
+      overflow: visible;
+  position: relative;
+    margin-top: 0px;
+    padding-top: 10px;
+    text-align: center;
+    
+}
+#features span {
+    display: block;
+    font-weight: bold;
+    margin: 5px;
+    color: #000000;
+}
+#logo img {
+    display: inline;
+}
 #imglogo {
   float: left;
   margin-right: 10px;
@@ -811,7 +830,3 @@ p#splash-text span {
 @media only screen and (min-width: 1024px) { body:after { content: "1024 to 1299px"; background-color: hsla(360,60%,40%,0.7); } }
 @media only screen and (min-width: 1300px) { body:after { content: "1300 and up"; background-color: hsla(60,60%,40%,0.7); } }*/
 
-
-#logo img {
-    display: inline;
-}

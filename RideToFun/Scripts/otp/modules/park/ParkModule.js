@@ -168,7 +168,10 @@ otp.modules.park.ParkModule =
     downloadStationData : function(callback) {
         var url = otp.config.hostname + 'Data/Parks';
         var this_ = this;
-        var data_ = { };
+        var data_ = {};
+        if ($("#features span.selected").length > 0) {
+            url += '?features=' + $("#features span.selected").text();
+        }
         if(otp.config.routerId !== undefined) {
             data_ = { routerId : otp.config.routerId }
         }

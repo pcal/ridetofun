@@ -31,7 +31,13 @@ otp.core.Webapp = {
         this.map = new otp.core.Map();        
         
         this.addModule(new otp.modules.bikeshare.BikeShareModule(this), true);
-        this.addModule(new otp.modules.park.ParkModule(this), true);
+
+        var __this = this;
+        $("#features span").on("click", function () {
+            $(this).addClass("selected");
+            __this.addModule(new otp.modules.park.ParkModule(this), true);
+            $(this).parent().fadeOut('slow');
+        });
         
         // Init AddThis
   //       addthis_config = {
