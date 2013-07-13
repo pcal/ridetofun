@@ -1,0 +1,158 @@
+﻿@model RideToFun.Models.Station
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Station</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.stationName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.stationName)
+            @Html.ValidationMessageFor(model => model.stationName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.availableDocks)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.availableDocks)
+            @Html.ValidationMessageFor(model => model.availableDocks)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.totalDocks)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.totalDocks)
+            @Html.ValidationMessageFor(model => model.totalDocks)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.latitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.latitude)
+            @Html.ValidationMessageFor(model => model.latitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.longitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.longitude)
+            @Html.ValidationMessageFor(model => model.longitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.statusValue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.statusValue)
+            @Html.ValidationMessageFor(model => model.statusValue)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.statusKey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.statusKey)
+            @Html.ValidationMessageFor(model => model.statusKey)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.availableBikes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.availableBikes)
+            @Html.ValidationMessageFor(model => model.availableBikes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.stAddress1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.stAddress1)
+            @Html.ValidationMessageFor(model => model.stAddress1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.stAddress2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.stAddress2)
+            @Html.ValidationMessageFor(model => model.stAddress2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.city)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.city)
+            @Html.ValidationMessageFor(model => model.city)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.postalCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.postalCode)
+            @Html.ValidationMessageFor(model => model.postalCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.location)
+            @Html.ValidationMessageFor(model => model.location)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.altitude)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.altitude)
+            @Html.ValidationMessageFor(model => model.altitude)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.testStation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.testStation)
+            @Html.ValidationMessageFor(model => model.testStation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.landMark)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.landMark)
+            @Html.ValidationMessageFor(model => model.landMark)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

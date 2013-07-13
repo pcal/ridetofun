@@ -22,6 +22,10 @@
     <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
     <button data-bind="click: addTodoList">Add Todo list</button>
 
+    <section id="map">
+        
+    </section>
+    
     <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
         <article class="todoList">
             <header>

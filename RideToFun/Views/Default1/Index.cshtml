@@ -1,0 +1,123 @@
+﻿@model IEnumerable<RideToFun.Models.Station>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availableDocks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalDocks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.statusKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availableBikes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stAddress1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stAddress2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.altitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.testStation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.landMark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.stationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availableDocks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalDocks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.statusKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availableBikes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stAddress1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stAddress2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.altitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.testStation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.landMark)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

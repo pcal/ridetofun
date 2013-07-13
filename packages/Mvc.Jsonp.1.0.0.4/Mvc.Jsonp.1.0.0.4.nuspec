@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Mvc.Jsonp</id>
+    <version>1.0.0.4</version>
+    <title>Mvc.Jsonp</title>
+    <authors>Jeffrey Pratt</authors>
+    <owners>Jeffrey Pratt</owners>
+    <licenseUrl>http://github.com/clementi/Mvc.Jsonp/blob/master/license.mdown</licenseUrl>
+    <projectUrl>http://github.com/clementi/Mvc.Jsonp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JSONP for ASP.NET MVC</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+  </metadata>
+</package>

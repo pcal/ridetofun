@@ -1,0 +1,127 @@
+﻿@model RideToFun.Models.Station
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Station</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.stationName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.stationName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.availableDocks)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.availableDocks)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.totalDocks)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.totalDocks)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.latitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.latitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.longitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.longitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.statusValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.statusValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.statusKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.statusKey)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.availableBikes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.availableBikes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.stAddress1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.stAddress1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.stAddress2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.stAddress2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.city)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.city)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.postalCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.postalCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.location)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.location)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.altitude)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.altitude)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.testStation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.testStation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.landMark)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.landMark)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
