@@ -314,6 +314,13 @@
     <Content Include="Images\ico-divvy-sm-0.png" />
     <Content Include="Images\ico-divvy-sm-50.png" />
     <Content Include="Images\ico-divvy-sm.png" />
+    <Content Include="Images\ico-park-sm.png" />
+    <Content Include="Images\logo-biker%402x.png" />
+    <Content Include="Images\logo-biker.png" />
+    <Content Include="Images\logo-park%402x.png" />
+    <Content Include="Images\logo%402x.png" />
+    <Content Include="Images\logo-park.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\marker-0pct.png" />
     <Content Include="Images\marker-100pct.png" />
     <Content Include="Images\marker-25pct.png" />
@@ -412,6 +419,7 @@
     <Content Include="Scripts\otp\widgets\InfoWidget.js" />
     <Content Include="Scripts\otp\widgets\TripSummaryWidget.js" />
     <Content Include="Scripts\otp\widgets\Widget.js" />
+    <Content Include="Scripts\retina.js" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
