@@ -155,27 +155,28 @@ body {
 -------------------------------------------------------------- */
 
 #branding {
-  height: 2.25em;
+    height: 64px;
   overflow: visible;
   position: relative;
   z-index: 100;
   color: #fff;
+    border-bottom: solid 3px #000;
+    text-align: center;
+  background-color: #fff;
 
-  background-color: #444;
-
-  background-image: linear-gradient(bottom, rgb(68,68,68) 0%, rgb(102,102,102) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(68,68,68) 0%, rgb(102,102,102) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(68,68,68) 0%, rgb(102,102,102) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(68,68,68) 0%, rgb(102,102,102) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(68,68,68) 0%, rgb(102,102,102) 100%);
+  /*background-image: linear-gradient(bottom, rgb(255,255,255) 0%, rgb(233,233,233) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(255,255,255) 0%,  rgb(233,233,233) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 0%,  rgb(233,233,233) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 0%,  rgb(233,233,233) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 0%,  rgb(233,233,233) 100%);
 
   background-image: -webkit-gradient(
   	linear,
   	left bottom,
   	left top,
-  	color-stop(0, rgb(68,68,68)),
-  	color-stop(1, rgb(102,102,102))
-  );
+  	color-stop(0, rgb(255,255,255)),
+  	color-stop(1, rgb(233,233,233))
+  );*/
 }
 
 /* the logo */
@@ -190,16 +191,16 @@ body {
   right: 0;
   margin-top: -15px;
   overflow: hidden;*/
-  padding: 0px 0 18px 1.5em;
+  padding: 0;
   z-index: 2;
-  width: 250px;
+  width: 100%;
   float: left;
 }
 #logo .ribbon {
   position: relative;
   height: 5em;
-  right: -10px;
-  padding: 0 10px 0 1.5em;
+  right: 0px;
+    padding: 0;
   border-top: 1px solid #529be6;
   border-bottom: 1px solid #2a65a1;
 
@@ -325,6 +326,7 @@ body {
 #main-menu {
   padding: .25em;
   float: right;
+      display: none;
 }
 #main-menu li {
   float: left;
@@ -542,6 +544,7 @@ ul.otp-stats li strong {
 
 
 p#splash-text {
+    display: none;
   position: absolute;
   top: 4.75em;
   right: 0;
@@ -807,3 +810,8 @@ p#splash-text span {
 @media only screen and (min-width: 768px) { body:after { content: "768 to 1023px"; background-color: hsla(270,60%,40%,0.7); } }
 @media only screen and (min-width: 1024px) { body:after { content: "1024 to 1299px"; background-color: hsla(360,60%,40%,0.7); } }
 @media only screen and (min-width: 1300px) { body:after { content: "1300 and up"; background-color: hsla(60,60%,40%,0.7); } }*/
+
+
+#logo img {
+    display: inline;
+}

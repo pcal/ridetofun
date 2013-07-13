@@ -15,7 +15,7 @@ if(typeof(otp.config) == "undefined" || otp.config == null) otp.config = {};
 otp.config = {
 
 
-    hostname : "http://localhost:3520/",
+    hostname : "http://ridetofun.azurewebsites.net/",
     routerId : "mtl",
     
     
