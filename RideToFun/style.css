@@ -614,7 +614,7 @@ p#splash-text span {
 @media only screen and (min-width: 768px) {
 
   #branding {
-    height: 60px;
+    height: 64px;
   }
   #map {
     top: 4em;
