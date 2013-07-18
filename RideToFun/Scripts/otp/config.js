@@ -15,8 +15,8 @@ if(typeof(otp.config) == "undefined" || otp.config == null) otp.config = {};
 otp.config = {
 
 
-    //hostname: "http://ridetofun.com/",
-    hostname: "http://localhost:3520/",
+    hostname: "http://ridetofun.com/",
+    //hostname: "http://localhost:3520/",
     routerId : "mtl",
     
     
