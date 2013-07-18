@@ -308,8 +308,8 @@ otp.modules.bikeshare.BikeShareModule =
                 //var start_and_end_stations = this_.getStations(polyline.getLatLngs()[0], polyline.getLatLngs()[polyline.getLatLngs().length - 1]);
                 //this_.bikestationsWidget.setContentAndShow(start_and_end_stations['start'], start_and_end_stations['end']);
 
+                this_.webapp.setBounds(new L.LatLngBounds([this_.startLatLng, this_.endLatLng]));
 
-                
 
             }
         });

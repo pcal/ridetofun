@@ -16,61 +16,75 @@ otp.namespace("otp.core");
 
 otp.core.Map = {
 
-    lmap    : null,
-    
-    initialize : function(config) {
+    lmap: null,
+
+    initialize: function (config) {
         otp.configure(this, config);
 
         // this.setLocation(function(currentPosition) {
 
-         // otp.config.initLatLong = new L.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
+        // otp.config.initLatLong = new L.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
 
-          this.lmap = new L.Map('map', {minZoom: otp.config.minZoom, maxZoom: otp.config.maxZoom});
+        this.lmap = new L.Map('map', { minZoom: otp.config.minZoom, maxZoom: otp.config.maxZoom });
 
-          var tileLayer = new L.TileLayer(otp.config.tileUrl, {attribution: otp.config.tileAttrib});
-  	    
-  	      if(typeof otp.config.getTileUrl != 'undefined') {
-      	    tileLayer.getTileUrl = otp.config.getTileUrl;
-          }
-  	    
-          this.lmap.setView(otp.config.initLatLng, otp.config.initZoom).addLayer(tileLayer);
-          
-          if(typeof otp.config.overlayTileUrl != 'undefined') {
-  	    	  var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
-  	    	  this.lmap.addLayer(overlayTileLayer);
-          }
+        var tileLayer = new L.TileLayer(otp.config.tileUrl, { attribution: otp.config.tileAttrib });
+
+        if (typeof otp.config.getTileUrl != 'undefined') {
+            tileLayer.getTileUrl = otp.config.getTileUrl;
+        }
+
+        this.lmap.setView(otp.config.initLatLng, otp.config.initZoom).addLayer(tileLayer);
+        
+        if (typeof otp.config.overlayTileUrl != 'undefined') {
+            var overlayTileLayer = new L.TileLayer(otp.config.overlayTileUrl);
+            this.lmap.addLayer(overlayTileLayer);
+        }
+
+        this.getLocation(function() {});
+        
         // });
     },
-    
-    activeModuleChanged : function(newModule) {
-        this.lmap.on('click', function(event) {
+
+    activeModuleChanged: function (newModule) {
+        this.lmap.on('click', function (event) {
             newModule.handleClick(event);
         });
-        
+
         for (var i = 0; i < newModule.mapLayers.length; i++) {
             this.lmap.addLayer(newModule.mapLayers[i]);
         }
     },
+
+    setBounds: function (bounds) {
+        this.lmap.fitBounds(bounds);
+    },
     
-    setBounds : function(bounds)
-    {
-    	this.lmap.fitBounds(bounds);
+    setView: function(center) {
+        var tileLayer = new L.TileLayer(otp.config.tileUrl, { attribution: otp.config.tileAttrib });
+        this.lmap.setView(center, otp.config.initZoom).addLayer(tileLayer);
     },
 
-    getLocation : function(processMap)
-    {
+    getLocation: function (callback) {
         var currentPosition;
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position){
-              processMap(position);
+            var this_ = this;
+            navigator.geolocation.getCurrentPosition(function (position) {
+
+                console.log("Geolocated: " + position.coords.latitude + " " + position.coords.longitude);
+
+                this_.setView(new L.LatLng(position.coords.latitude, position.coords.longitude));
+                //this_.setView(new L.LatLng(41.8969173,-87.6435474));
+                
+
+                callback(position);
             });
         }
-        else{
+        else {
             alert("Geolocation is not supported by this browser.");
         }
     },
-    
-    CLASS_NAME : "otp.core.Map"
+
+    CLASS_NAME: "otp.core.Map"
 }
 
 

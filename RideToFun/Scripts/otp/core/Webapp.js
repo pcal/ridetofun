@@ -41,14 +41,14 @@ otp.core.Webapp = {
         
         // Init AddThis
   //       addthis_config = {
-		//      pubid: "ra-4fb549f217255a7d",
-		//      data_track_clickback: false
-		// };
-		// $.getScript("http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fb549f217255a7d");
-		
-		if(window.location.hash !== "")
-			otp.util.DataStorage.retreive(window.location.hash.replace("#", ""), this);
-		
+        //      pubid: "ra-4fb549f217255a7d",
+        //      data_track_clickback: false
+        // };
+        // $.getScript("http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fb549f217255a7d");
+        
+        if(window.location.hash !== "")
+            otp.util.DataStorage.retreive(window.location.hash.replace("#", ""), this);
+        
     },
     
     addModule : function(module, makeActive) {
@@ -67,36 +67,40 @@ otp.core.Webapp = {
     },   
     
     restoreTrip : function(data) {
-    	
-    	this.activeModule.restorePlan(data);
+        
+        this.activeModule.restorePlan(data);
    
     },
     
     setLinks : function(module) {
-    	var aboutLink = $("#about_link");
-    	var contactLink = $("#contact_link");
-    	    	
-    	aboutLink.click(function(e) {
-        	e.preventDefault("about");
-        	module.showAboutInfo();
+        var aboutLink = $("#about_link");
+        var contactLink = $("#contact_link");
+                
+        aboutLink.click(function(e) {
+            e.preventDefault("about");
+            module.showAboutInfo();
         });	
-    	contactLink.click(function(e) {
-        	e.preventDefault();
-        	module.showContactInfo();
+        contactLink.click(function(e) {
+            e.preventDefault();
+            module.showContactInfo();
         });
     },
     
     setBounds : function(bounds)
     {
-    	this.map.lmap.fitBounds(bounds);
+        this.map.lmap.fitBounds(bounds);
+    },
+    
+    getLocation: function(callback) {
+        this.map.lmap.getLocation(callback);
     },
         
     newTrip : function(hash) {
-    	
-    	this.currentHash = hash;	
-    	
-    	window.location.hash = this.currentHash;
-    	
+        
+        this.currentHash = hash;	
+        
+        window.location.hash = this.currentHash;
+        
         var shareRoute = $("#share-route");
         shareRoute.find(".addthis_toolbox").attr("addthis:url", "http://cibi.me/#"+this.currentHash);
         addthis.toolbox(".addthis_toolbox_route");
