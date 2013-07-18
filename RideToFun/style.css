@@ -171,11 +171,11 @@ body {
   background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 0%,  rgb(233,233,233) 100%);
 
   background-image: -webkit-gradient(
-  	linear,
-  	left bottom,
-  	left top,
-  	color-stop(0, rgb(255,255,255)),
-  	color-stop(1, rgb(233,233,233))
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(255,255,255)),
+    color-stop(1, rgb(233,233,233))
   );*/
 }
 
@@ -233,11 +233,11 @@ body {
   background-image: -ms-linear-gradient(bottom, rgb(86,162,238) 0%, rgb(120,185,255) 100%);
 
   background-image: -webkit-gradient(
-  	linear,
-  	left bottom,
-  	left top,
-  	color-stop(0, rgb(86,162,238)),
-  	color-stop(1, rgb(120,185,255))
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(86,162,238)),
+    color-stop(1, rgb(120,185,255))
   );
 
      -moz-box-shadow: inset -2px 1px 1px rgba(255,255,255,0.5);
@@ -248,8 +248,8 @@ body {
 #logo .ribbon:after { 
   content: "\0020";
   display: block; 
-	width: 100%; 
-	height: 100%; 
+    width: 100%; 
+    height: 100%; 
   position: absolute;
   top: -1px;
   right: -1px;
@@ -267,11 +267,11 @@ body {
   background-image: -ms-linear-gradient(bottom, rgb(86,162,238) 0%, rgb(120,185,255) 100%);
 
   background-image: -webkit-gradient(
-  	linear,
-  	left bottom,
-  	left top,
-  	color-stop(0, rgb(86,162,238)),
-  	color-stop(1, rgb(120,185,255))
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(86,162,238)),
+    color-stop(1, rgb(120,185,255))
   );
 
           transform: skew(45deg,0deg);
@@ -346,7 +346,6 @@ body {
 #main-menu {
   padding: .25em;
   float: right;
-      display: none;
 }
 #main-menu li {
   float: left;
@@ -390,11 +389,11 @@ body {
   background-image: -ms-linear-gradient(bottom, rgb(229,229,229) 0%, rgb(208,208,208) 100%);
 
   background-image: -webkit-gradient(
-  	linear,
-  	left bottom,
-  	left top,
-  	color-stop(0, rgb(229,229,229)),
-  	color-stop(1, rgb(208,208,208))
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(229,229,229)),
+    color-stop(1, rgb(208,208,208))
   );
 }
 #branding .search ::-webkit-input-placeholder { color: #777; }
@@ -447,23 +446,23 @@ body {
 }
 
 .otp-widget .close {
-	color: #666;
-	cursor: pointer;
-	font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    font-size: 20px;
   font-weight: bold;
-	text-shadow: -1px 1px 0 #ffffff;
+    text-shadow: -1px 1px 0 #ffffff;
   padding: 0 0.4em 0.23em;
-	float: right;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: 1000;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
 .otp-widget .close:hover {
-	color: red;
+    color: red;
 }
 
 #otp-tripResultsWidget {
@@ -503,7 +502,7 @@ body {
 }
 
 #otp-aboutWidget .content, #otp-contactWidget .content {
-	padding: 2em;
+    padding: 2em;
 }
 
 #otp-aboutWidget .content img, #otp-contactWidget .content img {
@@ -511,19 +510,19 @@ body {
 }
 
 #otp-aboutWidget .content a, #otp-contactWidget .content a {
-	text-decoration: none;
-	color: rgb(82, 155, 230);
-	font-weight: bold;
+    text-decoration: none;
+    color: rgb(82, 155, 230);
+    font-weight: bold;
 }
 
 #otp-aboutWidget .title, #otp-contactWidget .title {
-	font-weight: bold;
-	font-size: 1.5em;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 #otp-aboutWidget .text, #otp-contactWidget .text {
-	font-weight: normal;
-	font-size: 1em;
+    font-weight: normal;
+    font-size: 1em;
 }
 
 #otp-mainTSW {
@@ -670,45 +669,45 @@ p#splash-text span {
   
   #otp-bikestationsWidget {
     visibility: visible;
-  	right: 10px;
-  	bottom: 2.5em;
-  	text-align: center;
-  	background: transparent;
-  	padding: 0;
-  	border: 0;
-  	   -moz-box-shadow: none;
-  	-webkit-box-shadow: none;
-  	        box-shadow: none;
+    right: 10px;
+    bottom: 2.5em;
+    text-align: center;
+    background: transparent;
+    padding: 0;
+    border: 0;
+       -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
   
   #otp-bikestationsWidget .button {
-  	cursor: pointer;
-	  background:#ccc;
-	  color: #111;
-	  margin: 0.5em 0 0;
-	  padding: 0.5em 1em;
-	  -webkit-border-radius: 3px;
-	     -moz-border-radius: 3px;
-	          border-radius: 3px;
+    cursor: pointer;
+      background:#ccc;
+      color: #111;
+      margin: 0.5em 0 0;
+      padding: 0.5em 1em;
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
        -moz-box-shadow: inset 0 2px 0 rgba(255,255,255,0.5);
-	  -webkit-box-shadow: inset 0 2px 0 rgba(255,255,255,0.5);
-	          box-shadow: inset 0 2px 0 rgba(255,255,255,0.5);
+      -webkit-box-shadow: inset 0 2px 0 rgba(255,255,255,0.5);
+              box-shadow: inset 0 2px 0 rgba(255,255,255,0.5);
   }
   
   #otp-bikestationsWidget .button.left {
-  	background-color: #3fc100;
-  	background-color: rgba(153,204,153, 0.8);
-	  border: 1px solid #51be1b;
-	  border-top: 1px solid #7fca5b;
-	  border-bottom: 1px solid #70995c;
+    background-color: #3fc100;
+    background-color: rgba(153,204,153, 0.8);
+      border: 1px solid #51be1b;
+      border-top: 1px solid #7fca5b;
+      border-bottom: 1px solid #70995c;
   }
   
   #otp-bikestationsWidget .button.right {
-  	background-color: #fd7474;
-	  background-color: rgba(255,159,159, 0.8);
-	  border: 1px solid #ff9191;
-	  border-top: 1px solid #fea6a6;
-	  border-bottom: 1px solid #e68b8b;
+    background-color: #fd7474;
+      background-color: rgba(255,159,159, 0.8);
+      border: 1px solid #ff9191;
+      border-top: 1px solid #fea6a6;
+      border-bottom: 1px solid #e68b8b;
   }
 
   #otp-contactWidget, #otp-aboutWidget {
@@ -717,35 +716,35 @@ p#splash-text span {
     left: 1.75em;
     width: 40em;
     bottom: 7.5em;
-  	padding: 0;
-  	overflow: hidden;
+    padding: 0;
+    overflow: hidden;
   }
   #otp-aboutWidget .content, #otp-contactWidget .content {
-  	overflow: auto;
-  	padding: 0 1em 2em;
-  	margin: 0 1em 0 0;
-  	position: absolute;
-  	top: 2em;
-  	bottom: 2em;
+    overflow: auto;
+    padding: 0 1em 2em;
+    margin: 0 1em 0 0;
+    position: absolute;
+    top: 2em;
+    bottom: 2em;
   }
   #otp-aboutWidget .content::-webkit-scrollbar-track
   {
-  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  	border-radius: 10px;
-  	background-color: #F5F5F5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
   }
 
   #otp-aboutWidget .content::-webkit-scrollbar
   {
-  	width: 12px;
-  	background-color: #F5F5F5;
+    width: 12px;
+    background-color: #F5F5F5;
   }
 
   #otp-aboutWidget .content::-webkit-scrollbar-thumb
   {
-  	border-radius: 10px;
-  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  	background-color: #555;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
   }
 
   #otp-mainTSW {
@@ -808,9 +807,9 @@ p#splash-text span {
   }
 
   #otp-bikestationsWidget .button {
-	  width: 16em;
-  	float: left;
-  	margin: 0 0 0 0.5em;
+      width: 16em;
+    float: left;
+    margin: 0 0 0 0.5em;
   }
   
 

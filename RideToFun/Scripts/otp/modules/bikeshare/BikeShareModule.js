@@ -138,41 +138,61 @@ otp.modules.bikeshare.BikeShareModule =
             this.currentRequest = null;
         }
         
+        this.pathLayer.clearLayers();
         
         
-        var url = 'http://routes.cloudmade.com/bcd15929b0b547619417904ec26da9ba/api/0.3/';
-        this.pathLayer.clearLayers();        
-        //this.stationsLayer.clearLayers(); 
+        // BEGIN: CLOUDMADE WORKING
+        
+        //var url = 'http://routes.cloudmade.com/bcd15929b0b547619417904ec26da9ba/api/0.3/';
+        //this.pathLayer.clearLayers();        
+        ////this.stationsLayer.clearLayers(); 
+        
+        //var this_ = this;
+        
+        //var data_ = null;
+        
+        ////if(existingData)
+        ////    data_ = existingData;
+        ////else
+        ////{
+        ////    var bikeType = $('input:radio[name=bikeType]:checked').val();
+        ////    var mode = 'WALK,BICYCLE';
+        ////    if(bikeType !== undefined)
+        ////        mode = (bikeType == "shared_bike") ? 'WALK,BICYCLE' : 'BICYCLE';
+        ////    data_ = {             
+        ////        fromPlace: this.startLatLng.lat+','+this.startLatLng.lng,
+        ////        toPlace: this.endLatLng.lat+','+this.endLatLng.lng,
+        ////        mode: mode,
+        ////        optimize: 'TRIANGLE',
+        ////        bikeSpeed: 7.5,
+        ////        triangleTimeFactor: this_.triangleTimeFactor,
+        ////        triangleSlopeFactor: this_.triangleSlopeFactor,
+        ////        triangleSafetyFactor: this_.triangleSafetyFactor
+        ////    };
+        ////    if(otp.config.routerId !== undefined) {
+        ////        data_.routerId = otp.config.routerId;
+        ////    }
+        ////} 	
+
+        //url += this.startLatLng.lat + ',' + this.startLatLng.lng + ',' + this.endLatLng.lat + ',' + this.endLatLng.lng;
+        //url += '/bicycle.js';
+        
+        // END: CLOUDMADE WORKING
+
+        // BEGIN: LOCAL
+        
+        var url = otp.config.hostname + 'Data/Directions/';
         
         var this_ = this;
         
-        var data_ = null;
-        
-        //if(existingData)
-        //    data_ = existingData;
-        //else
-        //{
-        //    var bikeType = $('input:radio[name=bikeType]:checked').val();
-        //    var mode = 'WALK,BICYCLE';
-        //    if(bikeType !== undefined)
-        //        mode = (bikeType == "shared_bike") ? 'WALK,BICYCLE' : 'BICYCLE';
-        //    data_ = {             
-        //        fromPlace: this.startLatLng.lat+','+this.startLatLng.lng,
-        //        toPlace: this.endLatLng.lat+','+this.endLatLng.lng,
-        //        mode: mode,
-        //        optimize: 'TRIANGLE',
-        //        bikeSpeed: 7.5,
-        //        triangleTimeFactor: this_.triangleTimeFactor,
-        //        triangleSlopeFactor: this_.triangleSlopeFactor,
-        //        triangleSafetyFactor: this_.triangleSafetyFactor
-        //    };
-        //    if(otp.config.routerId !== undefined) {
-        //        data_.routerId = otp.config.routerId;
-        //    }
-        //} 	
+        var data_ = {
+            originLat: this.startLatLng.lat,
+            originLong: this.startLatLng.lng,
+            destLat: this.endLatLng.lat,
+            destLong: this.endLatLng.lng
+        };
 
-        url += this.startLatLng.lat + ',' + this.startLatLng.lng + ',' + this.endLatLng.lat + ',' + this.endLatLng.lng;
-        url += '/bicycle.js';
+        // END: LOCAL
 
         this.currentRequest = $.ajax(url, {
             data:       data_,
@@ -224,22 +244,66 @@ otp.modules.bikeshare.BikeShareModule =
                 
 
 
+                // BEGIN CLOUDMADE WORKING
+                //var point, route, points = [];
+                //for (var i = 0; i < data.route_geometry.length; i++) {
+                //    point = new L.LatLng(data.route_geometry[i][0], data.route_geometry[i][1]);
+                //    points.push(point);
+                //}
+                
+                //var polyline = new L.Polyline(points, {
+                //    weight: 3,
+                //    opacity: 0.5,
+                //    color: '#0073e5',
+                //    smoothFactor: 1
+                //});
+                //this_.pathLayer.addLayer(polyline);
+                // END CLOUDMADE WORKING
+                
 
+                // BEGIN CUSTOM
                 var point, route, points = [];
-                for (var i = 0; i < data.route_geometry.length; i++) {
-                    point = new L.LatLng(data.route_geometry[i][0], data.route_geometry[i][1]);
+                for (var i = 0; i < data.originwalk.length; i++) {
+                    point = new L.LatLng(data.originwalk[i].Latitude, data.originwalk[i].Longitude);
                     points.push(point);
                 }
-                
+
                 var polyline = new L.Polyline(points, {
-                    weight: 3,
+                    weight: 4,
+                    opacity: 0.5,
+                    color: '#2F9F00',
+                    smoothFactor: 1
+                });
+                this_.pathLayer.addLayer(polyline);
+                
+                point, route, points = [];
+                for (var i = 0; i < data.bike.length; i++) {
+                    point = new L.LatLng(data.bike[i].Latitude, data.bike[i].Longitude);
+                    points.push(point);
+                }
+
+                polyline = new L.Polyline(points, {
+                    weight: 4,
                     opacity: 0.5,
                     color: '#0073e5',
                     smoothFactor: 1
-                //}).addTo(map);
                 });
-                //route.bringToFront();
                 this_.pathLayer.addLayer(polyline);
+                
+                point, route, points = [];
+                for (var i = 0; i < data.destwalk.length; i++) {
+                    point = new L.LatLng(data.destwalk[i].Latitude, data.destwalk[i].Longitude);
+                    points.push(point);
+                }
+
+                polyline = new L.Polyline(points, {
+                    weight: 4,
+                    opacity: 0.5,
+                    color: '#2F9F00',
+                    smoothFactor: 1
+                });
+                this_.pathLayer.addLayer(polyline);
+                // END CUSTOM
                 
                 //var start_and_end_stations = this_.getStations(polyline.getLatLngs()[0], polyline.getLatLngs()[polyline.getLatLngs().length - 1]);
                 //this_.bikestationsWidget.setContentAndShow(start_and_end_stations['start'], start_and_end_stations['end']);

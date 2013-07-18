@@ -36,7 +36,7 @@ otp.core.Webapp = {
         $("#features span").on("click", function () {
             $(this).addClass("selected");
             __this.addModule(new otp.modules.park.ParkModule(this), true);
-            $(this).parent().fadeOut('slow');
+            $(this).parent().slideUp('slow');
         });
         
         // Init AddThis
