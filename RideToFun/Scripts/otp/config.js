@@ -28,7 +28,7 @@ otp.config = {
     //tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr,openplans.nyc_bike_overlay/{z}/{x}/{y}.png',
     tileUrl : 'http://a.tiles.mapbox.com/v3/asabbott.map-vvvfeozr/{z}/{x}/{y}.png',
     //overlayTileUrl : 'http://{s}.tiles.mapbox.com/v3/intertwine.nyc_bike_overlay/{z}/{x}/{y}.png',
-    tileAttrib : 'Routing powered by <a href="http://opentripplanner.org/">OpenTripPlanner</a>, Map tiles from MapBox (<a href="http://mapbox.com/about/maps/">terms</a>) and OpenStreetMap ',
+    tileAttrib : 'Routing powered by <a href="http://cloudmade.com/">CloudMade</a>, Map tiles from MapBox (<a href="http://mapbox.com/about/maps/">terms</a>) and OpenStreetMap.  <a href="mailto:info@ridetofun.com">Contact Us</a> for more information.',
     initLatLng : new L.LatLng(41.875968, -87.624421),
     //initLatLng : null,
     initZoom : 14,

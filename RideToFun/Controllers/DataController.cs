@@ -160,7 +160,9 @@ WHERE FeatureName In (@features)";
                 {
                     originwalk = walkOriginSegment,
                     bike = bikeSegment,
-                    destwalk = walkDestSegment
+                    destwalk = walkDestSegment,
+                    originstation = originStation,
+                    deststation = destStation
                 };
 
             return Jsonp(routes, callback, JsonRequestBehavior.AllowGet);
